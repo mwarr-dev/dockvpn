@@ -3,6 +3,26 @@
 Quick instructions:
 
 ```bash
+git clone https://github.com/mwarr-dev/dockvpn.git
+```
+
+```bash
+cd dockvpn
+```
+```bash
+docker build -t dockvpn .
+```
+
+
+
+```bash
+CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp dockvpn)
+docker run -t -i -p 8080:8080 --volumes-from $CID dockvpn serveconfig
+```
+
+
+
+```bash
 CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn)
 docker run -t -i -p 8080:8080 --volumes-from $CID jpetazzo/dockvpn serveconfig
 ```
