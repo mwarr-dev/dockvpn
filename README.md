@@ -20,13 +20,6 @@ CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp dockvpn)
 docker run -t -i -p 8080:8080 --volumes-from $CID dockvpn serveconfig
 ```
 
-
-
-```bash
-CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn)
-docker run -t -i -p 8080:8080 --volumes-from $CID jpetazzo/dockvpn serveconfig
-```
-
 Now download the file located at the indicated URL. You will get a
 certificate warning, since the connection is done over SSL, but we are
 using a self-signed certificate. After downloading the configuration,
