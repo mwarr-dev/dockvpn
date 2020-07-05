@@ -16,8 +16,8 @@ docker build -t dockvpn .
 
 
 ```bash
-CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp dockvpn)
-docker run -t -i -p 8080:8080 --volumes-from $CID dockvpn serveconfig
+CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp dockvpn:latest)
+docker run -t -i -p 8080:8080 --volumes-from $CID dockvpn:latest serveconfig
 ```
 
 Now download the file located at the indicated URL. You will get a
